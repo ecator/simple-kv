@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"io"
 	"net/http"
 	"regexp"
 	"simple-kv/cmd"
@@ -41,9 +42,7 @@ func handleGet(c *gin.Context) {
 func handleSet(c *gin.Context) {
 	token := c.Param("token")
 	key := c.Param("key")
-	length := c.Request.ContentLength
-	b := make([]byte, length)
-	c.Request.Body.Read(b)
+	b, _ := io.ReadAll(c.Request.Body)
 	value := string(b)
 	if err := kv.SetValue(token, key, value); err != nil {
 		c.String(http.StatusBadGateway, err.Error())
