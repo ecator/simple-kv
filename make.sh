@@ -12,3 +12,4 @@ go build -ldflags="-w -s -X 'main.DEBUG=0' -X 'simple-kv/cmd.VERSION=$version'" 
 
 export GOOS="linux"
 go build -ldflags="-w -s -X 'main.DEBUG=0' -X 'simple-kv/cmd.VERSION=$version'" -o $targetLinux
+
