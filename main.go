@@ -19,6 +19,7 @@ func main() {
 		fmt.Printf("addr: %s, port %s\n", cmd.Addr, cmd.Port)
 		gin.SetMode(gin.DebugMode)
 	} else {
+		fmt.Printf("Listening on %s:%s\n", cmd.Addr, cmd.Port)
 		gin.SetMode(gin.ReleaseMode)
 	}
 	r := gin.New()
@@ -27,7 +28,6 @@ func main() {
 	r.POST("/:token/:key", handleSet)
 	r.PUT("/:token/:key", handleSet)
 
-	fmt.Printf("Listening on %s:%s", cmd.Addr, cmd.Port)
 	r.Run(cmd.Addr + ":" + cmd.Port)
 }
 
