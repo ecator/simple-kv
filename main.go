@@ -15,9 +15,8 @@ var DEBUG string = "1"
 
 func main() {
 	cmd.Execute()
-	fmt.Printf("addr: %s, port %s\n", cmd.Addr, cmd.Port)
-	fmt.Printf("DEBUG: %s\n", DEBUG)
 	if DEBUG == "1" {
+		fmt.Printf("addr: %s, port %s\n", cmd.Addr, cmd.Port)
 		gin.SetMode(gin.DebugMode)
 	} else {
 		gin.SetMode(gin.ReleaseMode)
