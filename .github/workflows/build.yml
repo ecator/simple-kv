@@ -49,4 +49,4 @@ jobs:
           ALLOW_TAG_PREFIX: "true"
         with:
           args: |
-            release/*
+            *
