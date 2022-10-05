@@ -13,7 +13,7 @@ if (Test-Path $outdir){
 }
 
 $env:GOOS="windows"
-go build -ldflags="-w -s -X 'main.DEBUG=0' -X 'cmd.VERSION=$version'" -o $targetWin
+go build -ldflags="-w -s -X 'main.DEBUG=0' -X 'simple-kv/cmd.VERSION=$version'" -o $targetWin
 
 $env:GOOS="linux"
-go build -ldflags="-w -s -X 'main.DEBUG=0' -X 'cmd.VERSION=$version'" -o $targetLinux
+go build -ldflags="-w -s -X 'main.DEBUG=0' -X 'simple-kv/cmd.VERSION=$version'" -o $targetLinux
